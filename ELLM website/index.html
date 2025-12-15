@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ELLM Web App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__content">
+      <p class="pill">Prime-encoded reasoning</p>
+      <h1>ELLM Web App</h1>
+      <p class="subtitle">Run the full prime-based knowledge engine directly in your browser with no backend.</p>
+      <div class="actions">
+        <button id="loadSample" class="primary">Load sample knowledge</button>
+        <button id="resetEllm" class="ghost">Reset workspace</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="panel">
+      <div class="panel__header">
+        <div>
+          <p class="eyebrow">Step 1</p>
+          <h2>Teach ELLM facts and rules</h2>
+        </div>
+        <button id="learnButton" class="primary">Learn from text</button>
+      </div>
+      <p>Enter statements like <code>All birds can fly.</code> or <code>If Bob teaches math and Alice likes math, then Alice likes Bob.</code></p>
+      <textarea id="knowledgeInput" rows="10" aria-label="Knowledge input"></textarea>
+      <div class="log" id="learnLog" aria-live="polite"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel__header">
+        <div>
+          <p class="eyebrow">Step 2</p>
+          <h2>Ask a question</h2>
+        </div>
+        <div class="query__actions">
+          <input id="queryInput" type="text" placeholder="Is Socrates mortal?" aria-label="Query" />
+          <button id="askButton" class="primary">Ask</button>
+        </div>
+      </div>
+      <div class="result">
+        <div>
+          <p class="label">Answer</p>
+          <p id="answer" class="result__value">—</p>
+        </div>
+        <div>
+          <p class="label">Parsed query</p>
+          <p id="parsed" class="muted">—</p>
+        </div>
+      </div>
+      <div class="panel muted-panel">
+        <p class="label">Explanation</p>
+        <p id="explanation" class="muted">Teach ELLM and ask something to see the reasoning steps.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel__header">
+        <div>
+          <p class="eyebrow">Step 3</p>
+          <h2>Inspect the knowledge base</h2>
+        </div>
+        <span class="muted">Facts and rules currently stored</span>
+      </div>
+      <div class="kb">
+        <div>
+          <h3>Facts</h3>
+          <ul id="facts" class="list"></ul>
+        </div>
+        <div>
+          <h3>Rules</h3>
+          <ul id="rules" class="list"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>Built with HTML, CSS, and vanilla JavaScript—no build tools required.</small>
+  </footer>
+
+  <script src="ellm-core.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
